@@ -1,21 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.156
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. EasterLunch", "01. EasterLunch\01. EasterLunch.csproj", "{AC207C0B-2473-4EB7-B92C-02B1C58A21A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01. EasterLunch", "01. EasterLunch\01. EasterLunch.csproj", "{AC207C0B-2473-4EB7-B92C-02B1C58A21A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. EasterParty", "02. EasterParty\02. EasterParty.csproj", "{FBAD50C0-D168-4EE6-889F-2747A5624631}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02. EasterParty", "02. EasterParty\02. EasterParty.csproj", "{FBAD50C0-D168-4EE6-889F-2747A5624631}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. EasterTrip", "03. EasterTrip\03. EasterTrip.csproj", "{C5E0AEE5-55D8-40C3-9230-617BA08C46C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03. EasterTrip", "03. EasterTrip\03. EasterTrip.csproj", "{C5E0AEE5-55D8-40C3-9230-617BA08C46C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. EasterEggsBattle", "04. EasterEggsBattle\04. EasterEggsBattle.csproj", "{81581756-6039-409D-8D4F-41CD29587C89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04. EasterEggsBattle", "04. EasterEggsBattle\04. EasterEggsBattle.csproj", "{81581756-6039-409D-8D4F-41CD29587C89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. EasterEggs", "05. EasterEggs\05. EasterEggs.csproj", "{4CD61668-9570-47FD-8F11-633B9D6AA718}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05. EasterEggs", "05. EasterEggs\05. EasterEggs.csproj", "{4CD61668-9570-47FD-8F11-633B9D6AA718}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06. EasterCompetition", "06. EasterCompetition\06. EasterCompetition.csproj", "{36A3A1D9-5EDE-408D-9A19-D74BCF9715C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06. EasterCompetition", "06. EasterCompetition\06. EasterCompetition.csproj", "{36A3A1D9-5EDE-408D-9A19-D74BCF9715C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07. Hospital", "07. Hospital\07. Hospital.csproj", "{1385EFA5-C22B-406A-9726-EE433DDA44A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07. Hospital", "07. Hospital\07. Hospital.csproj", "{1385EFA5-C22B-406A-9726-EE433DDA44A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06. EasterDecoration", "06. EasterDecoration\06. EasterDecoration.csproj", "{61490841-6EE5-491A-A496-38BE2A0E7386}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. EasterBake", "05. EasterBake\05. EasterBake.csproj", "{559BCBBC-CD97-428F-8922-3F2D2EA90FA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{1385EFA5-C22B-406A-9726-EE433DDA44A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1385EFA5-C22B-406A-9726-EE433DDA44A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1385EFA5-C22B-406A-9726-EE433DDA44A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61490841-6EE5-491A-A496-38BE2A0E7386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61490841-6EE5-491A-A496-38BE2A0E7386}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61490841-6EE5-491A-A496-38BE2A0E7386}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61490841-6EE5-491A-A496-38BE2A0E7386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{559BCBBC-CD97-428F-8922-3F2D2EA90FA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{559BCBBC-CD97-428F-8922-3F2D2EA90FA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{559BCBBC-CD97-428F-8922-3F2D2EA90FA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{559BCBBC-CD97-428F-8922-3F2D2EA90FA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
