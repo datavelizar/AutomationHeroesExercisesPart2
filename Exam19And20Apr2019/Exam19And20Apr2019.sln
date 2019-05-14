@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07. Hospital", "07. Hospita
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06. EasterDecoration", "06. EasterDecoration\06. EasterDecoration.csproj", "{61490841-6EE5-491A-A496-38BE2A0E7386}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. EasterBake", "05. EasterBake\05. EasterBake.csproj", "{559BCBBC-CD97-428F-8922-3F2D2EA90FA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{61490841-6EE5-491A-A496-38BE2A0E7386}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61490841-6EE5-491A-A496-38BE2A0E7386}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61490841-6EE5-491A-A496-38BE2A0E7386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{559BCBBC-CD97-428F-8922-3F2D2EA90FA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{559BCBBC-CD97-428F-8922-3F2D2EA90FA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{559BCBBC-CD97-428F-8922-3F2D2EA90FA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{559BCBBC-CD97-428F-8922-3F2D2EA90FA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
