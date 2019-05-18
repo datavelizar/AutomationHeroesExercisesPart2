@@ -12,67 +12,46 @@ namespace _03._LegendaryFarming
             string material = null;
             string[] keyMaterialsTexts = { "shards", "fragments", "motes" };
             bool isFinished = false;
+            Dictionary<string, int> junkDictionary = new Dictionary<string, int>();
+            Dictionary<string, int> keyDictionary = new Dictionary<string, int>();
 
-            Dictionary<string, int> keyMaterials = new Dictionary<string, int>();
-
-            keyMaterials.Add("shards", 0);
-            keyMaterials.Add("fragments", 0);
-            keyMaterials.Add("motes", 0);
-
-            Dictionary<string, int> junk = new Dictionary<string, int>();
+            keyDictionary.Add(keyMaterialsTexts[0], 0);
+            keyDictionary.Add(keyMaterialsTexts[1], 0);
+            keyDictionary.Add(keyMaterialsTexts[2], 0);
 
             while (true)
             {
-                string input = Console.ReadLine();//"3 Motes 5 stones 5 Shards"; //
-
-                string[] inputArr = input.Split(" ");
+                string[] inputArr = Console.ReadLine().Split(" ");
 
                 for (int i = 0; i < inputArr.Length; i++)
                 {
                     if (i % 2 == 0) { quantity = int.Parse(inputArr[i]); }
-                    if (i % 2 == 1)
+                    else
                     {
                         material = inputArr[i].ToLower();
 
                         if (keyMaterialsTexts.Any(x => x == material))
                         {
-                            keyMaterials[material] += quantity;
-                            if (keyMaterials["shards"] >= 250)
-                            {
-                                isFinished = true;
-                                keyMaterials["shards"] -= 250;
-                                Console.WriteLine("Shadowmourne obtained!");
-                                PrintKeyMaterialsDescending(keyMaterials);
-                                break;
-                            }
+                            keyDictionary[material] += quantity;
 
-                            if (keyMaterials["fragments"] >= 250)
+                            if (keyDictionary[material] >= 250)
                             {
                                 isFinished = true;
-                                keyMaterials["fragments"] -= 250;
-                                Console.WriteLine("Valanyr obtained!");
-                                PrintKeyMaterialsDescending(keyMaterials);
-                                break;
-                            }
-
-                            if (keyMaterials["motes"] >= 250)
-                            {
-                                isFinished = true;
-                                keyMaterials["motes"] -= 250;
-                                Console.WriteLine("Dragonwrath obtained!");
-                                PrintKeyMaterialsDescending(keyMaterials);
+                                keyDictionary[material] -= 250;
+                                PrintLegendary(keyMaterialsTexts, material);
+                                PrintKeyDictionary(keyDictionary);
                                 break;
                             }
                         }
                         else
                         {
-                            if (junk.ContainsKey(material))
+                            if (junkDictionary.ContainsKey(material))
                             {
-                                junk[material] += quantity;
+                                junkDictionary[material] += quantity;
                             }
                             else
                             {
-                                junk.Add(material, quantity);
+                                junkDictionary.Add(material, quantity);
                             }
                         }
                     }
@@ -81,30 +60,24 @@ namespace _03._LegendaryFarming
                 if (isFinished) { break; }
             }
 
-            PrintJunk(junk);
+            PrintJunk(junkDictionary);
+        }
+
+        private static void PrintLegendary(string[] keyMaterialsTexts, string material)
+        {
+            if (material == keyMaterialsTexts[0]) Console.WriteLine("Shadowmourne obtained!");
+            if (material == keyMaterialsTexts[1]) Console.WriteLine("Valanyr obtained!");
+            if (material == keyMaterialsTexts[2]) Console.WriteLine("Dragonwrath obtained!");
         }
 
         private static void PrintJunk(Dictionary<string, int> junk)
         {
-            foreach (var item in junk.OrderBy(r => r.Key))
-            {
-                Console.WriteLine($"{ item.Key}: {item.Value}");
-            }
+            foreach (var item in junk.OrderBy(r => r.Key)) { Console.WriteLine($"{ item.Key}: {item.Value}"); }
         }
 
-        private static void PrintKeyMaterialsDescending(Dictionary<string, int> keyMaterials)
+        private static void PrintKeyDictionary(Dictionary<string, int> keyMaterials)
         {
-            foreach (var item in keyMaterials.OrderByDescending(key => key.Value).ThenBy(r => r.Key))
-            {
-                Console.WriteLine($"{item.Key}: {item.Value}");
-            }
+            foreach (var item in keyMaterials.OrderByDescending(key => key.Value).ThenBy(r => r.Key)) { Console.WriteLine($"{item.Key}: {item.Value}"); }
         }
     }
-}
-
-public enum KeyMaterials
-{
-    shards = 0,
-    fragments = 1,
-    motes = 2
 }
