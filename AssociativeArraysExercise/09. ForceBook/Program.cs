@@ -22,11 +22,8 @@ namespace _09._ForceBook
                     break;
                 }
 
-                SplitInput(sideSplitter, userSplitter, input, out string[] inputArr, out string side, out string user, out bool isSideSplitter);
+                SplitInput(sideSplitter, userSplitter, input, out string side, out string user, out bool isSideSplitter);
 
-                // If you receive forceSide | forceUser you should check if such forceUser already exists, and if not, add him/her to the corresponding side.
-                // If you receive a forceUser -> forceSide you should check if there is such forceUser already and if so, change his/her side.
-                // If there is no such forceUser, add him/her to the corresponding forceSide, treating the command as new registered forceUser.
                 if (isSideSplitter) // {forceSide} | {forceUser}   
                 {
                     DealWhenSideSplitter(sideAndUsers, side, user);
@@ -35,10 +32,74 @@ namespace _09._ForceBook
                 {
                     DealWhenUserSplitter(sideAndUsers, side, user);
                 }
-
             }
 
             Print(sideAndUsers);
+        }
+
+        private static void RemoveUser(Dictionary<string, List<string>> sideAndUsers, string user)
+        {
+            foreach (var listOfUsers in sideAndUsers.Values)
+            {
+                if (listOfUsers.IndexOf(user) != -1)
+                {
+                    listOfUsers.Remove(user);
+                }
+            }
+        }
+       
+        private static void DealWhenSideSplitter(Dictionary<string, List<string>> sideAndUsers, string side, string user)
+        {
+            if (!(sideAndUsers.Values.Any(x => x.IndexOf(user) != -1))) // new side | existing user
+            {
+                // If you receive forceSide | forceUser you should check if such forceUser already exists, and if not, add him/her to the corresponding side.
+                if (sideAndUsers.Keys.Any(x => x == side)) // existing side
+                {
+                    sideAndUsers[side].Add(user); // existing side | new user
+                }
+                else // new side
+                {
+                    sideAndUsers.Add(side, new List<string>() { user }); // new side | new user
+
+                }
+            }
+        }
+
+        private static void DealWhenUserSplitter(Dictionary<string, List<string>> sideAndUsers, string side, string user)
+        {
+            if (sideAndUsers.Values.Any(x => x.IndexOf(user) != -1))
+            {
+                RemoveUser(sideAndUsers, user);
+            }
+
+            if (sideAndUsers.Keys.Any(x => x == side)) // existing side
+            {
+                sideAndUsers[side].Add(user);
+            }
+            else // new site
+            {
+                sideAndUsers.Add(side, new List<string>() { user });
+            }
+
+            Console.WriteLine($"{user} joins the {side} side!");
+        }
+
+        private static void SplitInput(string sideSpltter, string userSplitter, string input, out string side, out string user, out bool isSideSplitter)
+        {
+            if (input.IndexOf(sideSpltter) != -1)
+            {   //we have side | user
+                var inputArr = input.Split(sideSpltter);
+                side = inputArr[0];
+                user = inputArr[1];
+                isSideSplitter = true;
+            }
+            else
+            {  //we have user => side 
+                var inputArr = input.Split(userSplitter);
+                user = inputArr[0];
+                side = inputArr[1];
+                isSideSplitter = false;
+            }
         }
 
         private static void Print(Dictionary<string, List<string>> sideAndUsers)
@@ -57,85 +118,6 @@ namespace _09._ForceBook
                         Console.WriteLine($"! {currentUser}");
                     }
                 }
-            }
-        }
-
-        private static void DealWhenUserSplitter(Dictionary<string, List<string>> sideAndUsers, string side, string user)
-        {
-            if (user != "" && side != "")
-            {
-                if (sideAndUsers.Keys.Any(x => x == side)) // existing side
-                {
-                    if (sideAndUsers.Values.Any(x => x.IndexOf(user) != -1)) // existing side | existing user //change his/her side
-                    {
-                        foreach (var listOfUsers in sideAndUsers.Values)
-                        {
-                            if (listOfUsers.IndexOf(user) != -1) // you have found where is the user
-                            {
-                                listOfUsers.Remove(user);
-                            }
-                        }
-                    }
-
-                    sideAndUsers[side].Add(user);
-                    Console.WriteLine($"{user} joins the {side} side!");
-                }
-                else // new site
-                {
-                    if (sideAndUsers.Values.Any(x => x.IndexOf(user) != -1))
-                    { // new side | existing user //change his/her side
-                        foreach (var listOfUsers in sideAndUsers.Values)
-                        {
-                            if (listOfUsers.IndexOf(user) != -1) // you have found where is the user
-                            {
-                                listOfUsers.Remove(user);
-                            }
-                        }
-                    }
-
-                    sideAndUsers.Add(side, new List<string>() { user });
-                    Console.WriteLine($"{user} joins the {side} side!");
-                }
-            }
-        }
-
-        private static void DealWhenSideSplitter(Dictionary<string, List<string>> sideAndUsers, string side, string user)
-        {
-            // If you receive forceSide | forceUser you should check if such forceUser already exists, and if not, add him/her to the corresponding side.
-            if (user != "" && side != "")
-            {
-                if (sideAndUsers.Keys.Any(x => x == side)) // existing side
-                {
-                    if (!(sideAndUsers.Values.Any(x => x.IndexOf(user) != -1)))
-                    {
-                        sideAndUsers[side].Add(user); // existing side | new user
-                    }
-                }
-                else // new side
-                {
-                    if (!(sideAndUsers.Values.Any(x => x.IndexOf(user) != -1))) // new side | existing user
-                    {
-                        sideAndUsers.Add(side, new List<string>() { user }); // new side | new user
-                    }
-                }
-            }
-        }
-
-        private static void SplitInput(string sideSpltter, string userSplitter, string input, out string[] inputArr, out string side, out string user, out bool isSideSplitter)
-        {
-            if (input.IndexOf(sideSpltter) != -1)
-            {   //we have side | user
-                inputArr = input.Split(sideSpltter);
-                side = inputArr[0];
-                user = inputArr[1];
-                isSideSplitter = true;
-            }
-            else
-            {  //we have user => side 
-                inputArr = input.Split(userSplitter);
-                user = inputArr[0];
-                side = inputArr[1];
-                isSideSplitter = false;
             }
         }
     }
