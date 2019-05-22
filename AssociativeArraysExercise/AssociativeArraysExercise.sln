@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. AMinerTask", "02. AMine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. LegendaryFarming", "03. LegendaryFarming\03. LegendaryFarming.csproj", "{C73C3538-D34F-4D1C-A099-2AC427038562}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Orders", "04. Orders\04. Orders.csproj", "{7BFA67A9-979F-4B9B-A56D-232E3E643D40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09. ForceBook", "09. ForceBook\09. ForceBook.csproj", "{A7D9BD98-79FF-453D-9B96-E5A31231BBA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{C73C3538-D34F-4D1C-A099-2AC427038562}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C73C3538-D34F-4D1C-A099-2AC427038562}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C73C3538-D34F-4D1C-A099-2AC427038562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BFA67A9-979F-4B9B-A56D-232E3E643D40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BFA67A9-979F-4B9B-A56D-232E3E643D40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BFA67A9-979F-4B9B-A56D-232E3E643D40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BFA67A9-979F-4B9B-A56D-232E3E643D40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7D9BD98-79FF-453D-9B96-E5A31231BBA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7D9BD98-79FF-453D-9B96-E5A31231BBA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7D9BD98-79FF-453D-9B96-E5A31231BBA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7D9BD98-79FF-453D-9B96-E5A31231BBA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
