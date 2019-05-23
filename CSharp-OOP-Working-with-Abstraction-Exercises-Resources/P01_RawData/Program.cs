@@ -1,5 +1,4 @@
 ﻿using System;
-
 using System.Collections.Generic;
 using System.Linq;
 
@@ -33,36 +32,42 @@ namespace P01_RawData
                 cars.Add(new Car(model, engine, cargo, tires));
             }
 
+            List<string> carsModelsToPrint = new List<string>();
+
             string command = Console.ReadLine();
 
             if (command == "fragile")
             {
-                PrintFragile(cars);
+                carsModelsToPrint = SelectFragile(cars);
             }
             else if (command == "flamable")
             {
-                PrintFlamable(cars);
+                carsModelsToPrint = SelectFlamable(cars);
             }
+
+            Console.WriteLine(string.Join(Environment.NewLine, carsModelsToPrint));
         }
 
-        private static void PrintFlamable(List<Car> cars)
+        private static List<string> SelectFlamable(List<Car> cars)
         {
             List<string> flamable = cars
-                .Where(x => x.cargoType == "flamable" && x.enginePower > 250)
+                .Where(x => x.cargoType == "flamable")
+                .Where(x => x.enginePower > 250)
                 .Select(x => x.model)
                 .ToList();
 
-            Console.WriteLine(string.Join(Environment.NewLine, flamable));
+            return flamable;
         }
 
-        private static void PrintFragile(List<Car> cars)
+        private static List<string> SelectFragile(List<Car> cars)
         {
             List<string> fragile = cars
-                .Where(x => x.cargoType == "fragile" && x.tires.Any(y => y.TirePressure < 1))
+                .Where(x => x.cargoType == "fragile")
+                .Where(x=> x.tires.Any(y => y.Pressure < 1))
                 .Select(x => x.model)
                 .ToList();
 
-            Console.WriteLine(string.Join(Environment.NewLine, fragile));
+            return fragile;
         }
     }
 }

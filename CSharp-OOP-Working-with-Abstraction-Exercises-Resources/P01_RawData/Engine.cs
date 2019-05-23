@@ -11,7 +11,7 @@ namespace P01_RawData
 
         public Engine(int engineSpeed, int enginePower)
         {
-            this.EngineSpeed = EngineSpeed;
+            this.EngineSpeed = engineSpeed;
             this.EnginePower = enginePower;
         }
     }

@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace P01_RawData
+﻿namespace P01_RawData
 {
     class Tire
     {
-        public double TirePressure { get; set; }
-        public int TireAge { get; set; }
+        public double Pressure { get; set; }
+        public int Age { get; set; }
 
-        public Tire(double tirePressure, int tireAge)
+        public Tire(double pressure, int age)
         {
-            this.TireAge = tireAge;
-            this.TirePressure = tirePressure;
+            this.Age = age;
+            this.Pressure = pressure;
         }
     }
 }
