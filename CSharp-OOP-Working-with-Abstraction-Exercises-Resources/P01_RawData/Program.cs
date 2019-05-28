@@ -9,6 +9,7 @@ namespace P01_RawData
         static void Main(string[] args)
         {
             List<Car> cars = new List<Car>();
+            const int TIRE_COUNT = 4;
 
             int lines = int.Parse(Console.ReadLine());
 
@@ -22,12 +23,17 @@ namespace P01_RawData
 
                 Cargo cargo = new Cargo(int.Parse(parameters[3]), parameters[4]);
 
-                Tire tire1 = new Tire(double.Parse(parameters[5]), int.Parse(parameters[6]));
-                Tire tire2 = new Tire(double.Parse(parameters[7]), int.Parse(parameters[8]));
-                Tire tire3 = new Tire(double.Parse(parameters[9]), int.Parse(parameters[10]));
-                Tire tire4 = new Tire(double.Parse(parameters[11]), int.Parse(parameters[12]));
+                Tire[] tires = new Tire[TIRE_COUNT];
+                int tireNumber = 0;
 
-                Tire[] tires = new Tire[] { tire1, tire2, tire3, tire4 };
+                for (int j = 5; j < 12; j += 2)
+                {
+                    Tire tire = new Tire(double.Parse(parameters[j]), int.Parse(parameters[j + 1]));
+
+                    tires[tireNumber] = tire;
+
+                    tireNumber++;
+                }
 
                 cars.Add(new Car(model, engine, cargo, tires));
             }
@@ -51,9 +57,9 @@ namespace P01_RawData
         private static List<string> SelectFlamable(List<Car> cars)
         {
             List<string> flamable = cars
-                .Where(x => x.cargoType == "flamable")
-                .Where(x => x.enginePower > 250)
-                .Select(x => x.model)
+                .Where(x => x.Cargo.CargoType == "flamable")
+                .Where(x => x.Engine.EnginePower > 250)
+                .Select(x => x.Model)
                 .ToList();
 
             return flamable;
@@ -62,9 +68,9 @@ namespace P01_RawData
         private static List<string> SelectFragile(List<Car> cars)
         {
             List<string> fragile = cars
-                .Where(x => x.cargoType == "fragile")
-                .Where(x=> x.tires.Any(y => y.Pressure < 1))
-                .Select(x => x.model)
+                .Where(x => x.Cargo.CargoType == "fragile")
+                .Where(x => x.Tires.Any(y => y.Pressure < 1))
+                .Select(x => x.Model)
                 .ToList();
 
             return fragile;
