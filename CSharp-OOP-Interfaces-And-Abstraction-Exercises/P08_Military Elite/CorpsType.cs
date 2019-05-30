@@ -1,4 +1,4 @@
-﻿namespace P08._Military_Elite.Models
+﻿namespace P08_Military_Elite
 {
     internal enum CorpsType
     {

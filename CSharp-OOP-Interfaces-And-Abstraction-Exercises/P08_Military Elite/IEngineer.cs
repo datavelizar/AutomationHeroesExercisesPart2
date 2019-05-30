@@ -1,8 +1,7 @@
-﻿namespace P08._Military_Elite.Contracts
-{
-    using P08._Military_Elite.Models;
-    using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
+namespace P08_Military_Elite
+{
     internal interface IEngineer : ISpecialisedSoldier, IPrivate, ISoldier
     {
         ICollection<Repair> Repairs { get; set; }
