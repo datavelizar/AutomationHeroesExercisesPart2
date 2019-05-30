@@ -1,4 +1,4 @@
-﻿namespace P08._Military_Elite.Contracts
+﻿namespace P08_Military_Elite
 {
     internal interface IPrivate : ISoldier
     {
