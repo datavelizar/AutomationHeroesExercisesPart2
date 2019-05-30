@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <RootNamespace>P08._Military_Elite</RootNamespace>
+    <RootNamespace>P08_Military_Elite</RootNamespace>
   </PropertyGroup>
 
 </Project>
